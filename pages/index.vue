@@ -9,7 +9,7 @@
       </h2>
 
       <p>In the meantime, feel free to reach out:</p>
-      <form action="POST" netlify>
+      <form action="Success" netlify>
         <p>
           <label>Name: <input type="text" name="name"/></label>
         </p>
@@ -69,7 +69,6 @@ form {
   display: block;
   margin: 10px auto;
   max-width: 100%;
-  border: 1px solid lightblue;
   padding: 10px;
   text-align: left;
   transition: 0.25s ease;
