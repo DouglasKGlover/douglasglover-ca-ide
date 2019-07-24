@@ -6,7 +6,7 @@
         DouglasGlover.ca
       </h1>
       <h2 class="subtitle">
-        Currently under construction (as of July 2019)
+        Currently under construction (July 2019)
       </h2>
     </div>
   </div>
@@ -29,14 +29,14 @@
     'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
   display: block;
   font-weight: 300;
-  font-size: 100px;
+  font-size: 5vw;
   color: #35495e;
   letter-spacing: 1px;
 }
 
 .subtitle {
   font-weight: 300;
-  font-size: 42px;
+  font-size: 2.5vw;
   color: #526488;
   word-spacing: 5px;
   padding-bottom: 15px;
@@ -44,5 +44,15 @@
 
 .links {
   padding-top: 15px;
+}
+
+@media (max-width: 700px) {
+  .title {
+    font-size: 10vw;
+  }
+
+  .subtitle {
+    font-size: 5vw;
+  }
 }
 </style>
