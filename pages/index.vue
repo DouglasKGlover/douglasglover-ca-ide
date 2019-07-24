@@ -102,6 +102,7 @@ button {
   color: white;
   padding: 1em 3em;
   font-weight: bold;
+  cursor: pointer;
 }
 
 @media (max-width: 700px) {
