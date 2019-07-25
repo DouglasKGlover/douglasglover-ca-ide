@@ -19,7 +19,7 @@ export default {
   /*
    ** Customize the progress-bar color
    */
-  loading: { color: '#fff' },
+  loading: { color: 'darkblue' },
   /*
    ** Global CSS
    */
@@ -36,8 +36,7 @@ export default {
       id: 'GTM-T5G493F',
       pageTracking: true,
       dev: false
-    }],
-    '@nuxtjs/eslint-module'
+    }]
   ],
   /*
    ** Build configuration

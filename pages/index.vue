@@ -2,32 +2,47 @@
   <div class="container">
     <div>
       <h1 class="title">
-        DouglasGlover.ca
+        Douglas Glover
       </h1>
       <h2 class="subtitle">
-        Currently under construction (July 2019)
+        Call me Doug
       </h2>
-
-      <p>In the meantime, feel free to reach out:</p>
-      <form action="Success" netlify>
-        <p>
-          <label>Name: <input type="text" name="name"/></label>
-        </p>
-        <p>
-          <label>Email: <input type="email" name="email"/></label>
-        </p>
-        <p>
-          <label>Message: <textarea name="message"></textarea></label>
-        </p>
-        <p>
-          <button type="submit">Send</button>
-        </p>
-      </form>
     </div>
   </div>
 </template>
 
-<script></script>
+<script>
+import axios from 'axios'
+
+export default {
+  data() {
+    return {}
+  },
+  mounted() {
+    // This gets XML from my CodePen blogs feed and logs the first post to the console
+    let myPost;
+    axios
+      .get('https://codepen.io/DouglasGlover/posts/feed')
+      .then(response => {
+        const parseString = require('xml2js').parseString
+        const xml = response.data
+        // console.log(xml);
+        parseString(xml, (err, result) => {
+          if (!err) {
+            // Success
+            const firstPost = result.rss.channel[0].item[0];
+            myPost = firstPost.description[0];
+            console.log(myPost);
+          } else {
+            // Handle error
+            console.log(err)
+          }
+        })
+      })
+      .catch(err => console.log(err))
+  }
+}
+</script>
 
 <style>
 * {
