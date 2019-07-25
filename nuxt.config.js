@@ -11,7 +11,7 @@ export default {
       {
         hid: 'description',
         name: 'description',
-        content: process.env.npm_package_description || ''
+        content: 'Freelance web developer based in Toronto, Ontario, Canada. Working on sites in a LAMP stack with Symfony 4 or JAM stack with Vue, Nuxt, and Netlify!'
       }
     ],
     link: [{ rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }]
@@ -31,7 +31,14 @@ export default {
   /*
    ** Nuxt.js modules
    */
-  modules: ['@nuxtjs/eslint-module'],
+  modules: [
+    ['@nuxtjs/google-tag-manager', { 
+      id: 'GTM-T5G493F',
+      pageTracking: true,
+      dev: false
+    }],
+    '@nuxtjs/eslint-module'
+  ],
   /*
    ** Build configuration
    */
