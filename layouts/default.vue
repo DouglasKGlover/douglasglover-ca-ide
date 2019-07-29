@@ -16,7 +16,7 @@ export default {
 </script>
 
 
-<style lang="scss" scoped>
+<style lang="scss">
 html {
   font-family: 'Source Sans Pro', -apple-system, BlinkMacSystemFont, 'Segoe UI',
     Roboto, 'Helvetica Neue', Arial, sans-serif;
@@ -34,6 +34,11 @@ html {
 *:after {
   box-sizing: border-box;
   margin: 0;
+}
+
+body{
+  margin: 0;
+  padding: 0;
 }
 
 .button--green {

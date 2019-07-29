@@ -22,10 +22,14 @@ div {
     justify-content: center;
     align-items: center;
     width: 100vw;
-    height: 100%;
+    height: 100px;
 
     ul {
         padding-left: 0;
+
+        li {
+            display: inline-block;
+        }
     }
 }
 </style>

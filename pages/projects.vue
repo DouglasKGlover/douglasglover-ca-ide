@@ -11,6 +11,17 @@
   </div>
 </template>
 
-<script></script>
+<script>
+import { mapState } from 'vuex';
+
+export default {
+  computed: {
+    ...mapState(["projects"])
+  },
+  mounted() {
+    this.$store.dispatch('getSha');
+  }
+}
+</script>
 
 <style lang="scss" scoped></style>
