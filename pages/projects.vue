@@ -7,12 +7,9 @@
       <h2 class="subtitle">
         My projects page
       </h2>
-      <!-- <div v-for="project in projects" :key="project.id">
+      <div v-for="project in projects" :key="project.slug">
         <h3><a :href="project.html_url" target="_blank">{{ project.name }}</a></h3>
-        <p>{{ project.stargazers_count }}</p>
-        <p>{{ project.homepage }}</p>
-        <p>{{ project.description }}</p>
-      </div> -->
+      </div>
     </div>
   </div>
 </template>

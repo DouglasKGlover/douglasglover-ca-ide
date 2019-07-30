@@ -3,17 +3,8 @@ export const state = () => ({
 })
 
 export const mutations = {
-    updateRepo: (state, payload) => {
-        state.repo = payload
-        console.log(state.repo);
-    },
-    updateTree: (state, payload) => {
-        state.tree = payload
-        console.log(state.repo);
-    },
     updateProjects: (state, payload) => {
-        state.projects = payload
-        console.log(state.projects);
+        state.projects.push(payload)
     }
 }
 
@@ -21,9 +12,12 @@ export const actions = {
     // TODO: use the following to decode base64: atob(myString);
     // Travel down the GitHub API tree to get individual project MD files from the repo I've set up to house them
     async getProjects({ state, commit }) {
+        if (state.projects.length) return
+
         let latestRepoCommit,
             treeUrl,
-            filesList = [];
+            filesList = [],
+            filesContents = [];
 
         // 1: Get the repo
         try {
@@ -37,26 +31,28 @@ export const actions = {
                 let getTree = await fetch(latestRepoCommit)
                     .then(res => res.json());
                 treeUrl = getTree.tree.url
-                console.log(treeUrl);
 
                 // 3: Get the files list from the tree
                 if (treeUrl.length === 0) return
                 try {
                     let getList = await fetch(treeUrl)
                         .then(res => res.json())
-                    filesList = getList.tree
-
-                    console.log(filesList);
+                    filesList = getList.tree.filter(el => el.path != 'README.md')
                     
-                    // 4: Get the file contents from each file and place them into state.projects
+                    // 4: Get the file contents from each file and place them into state.projects along with other pertinent info
                     for (const key in filesList) {
                         if (filesList.hasOwnProperty(key)) {
                             const element = filesList[key]
-                            
-                            console.log(element);
-                            
-                            // let getTree = await fetch(latestRepoCommit)
-                            //     .then(res => res.json());
+
+                            let getContents = await fetch(element.url)
+                                .then(res => res.json())
+                                filesContents = {
+                                    key: key,
+                                    slug: filesList[key].path.replace('.md', ''),
+                                    contents: Buffer.from(getContents.content, 'base64').toString()
+                                };
+
+                            commit("updateProjects", filesContents)
                         }
                     }
                 } catch (err) {
