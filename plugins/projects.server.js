@@ -1,3 +1,3 @@
 export default async ({ store }) => {
-    await store.dispatch("getSha")
+    await store.dispatch("getProjects")
 }
