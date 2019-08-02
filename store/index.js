@@ -9,7 +9,6 @@ export const mutations = {
 }
 
 export const actions = {
-    // TODO: use the following to decode base64: atob(myString);
     // Travel down the GitHub API tree to get individual project MD files from the repo I've set up to house them
     async getProjects({ state, commit }) {
         if (state.projects.length) return
