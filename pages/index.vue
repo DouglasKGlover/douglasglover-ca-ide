@@ -1,39 +1,42 @@
 <template>
   <div class="container">
     <div>
-      <logo />
-      <h1 class="title">
-        douglasglover-ca
-      </h1>
-      <h2 class="subtitle">
-        Douglas Glover&#39;s portfolio and blog site
-      </h2>
-      <div class="links">
-        <a
-          href="https://nuxtjs.org/"
-          target="_blank"
-          class="button--green"
-        >
-          Documentation
-        </a>
-        <a
-          href="https://github.com/nuxt/nuxt.js"
-          target="_blank"
-          class="button--grey"
-        >
-          GitHub
-        </a>
-      </div>
+      <h2>Projects:</h2>
+      <ul>
+        <li v-for="project in projects" :key="project.fields.title">
+          {{ project.fields.title }}
+        </li>
+      </ul>
+      <h2>Blogs:</h2>
+      <ul>
+        <li v-for="blog in blogs" :key="blog.fields.title">
+          {{ blog.fields.title }}
+        </li>
+      </ul>
     </div>
   </div>
 </template>
 
 <script>
-import Logo from '~/components/Logo.vue'
+import { createClient } from '~/plugins/contentful.js'
+
+const client = createClient()
 
 export default {
-  components: {
-    Logo
+  asyncData ({ env }) {
+    return Promise.all([
+      client.getEntries({
+        'content_type': 'project'
+      }),
+      client.getEntries({
+        'content_type': 'blogPost'
+      })
+    ]).then(([projects, blogs]) => {
+      return {
+        projects: projects.items,
+        blogs: blogs.items
+      }
+    }).catch()
   }
 }
 </script>
