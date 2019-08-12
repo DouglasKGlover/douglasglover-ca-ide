@@ -53,4 +53,19 @@ img{
 code{
   color: red;
 }
+p{
+  margin-bottom: 1em;
+}
+ul{
+  padding: 0;
+  margin: 1em 0;
+}
+li{
+  display: inline-block;
+  background: rgba(0,0,0,0.05);
+  padding: 0 10px;
+  border-radius: 3px;
+  font-size: .9em;
+  margin: 0 2px;
+}
 </style>

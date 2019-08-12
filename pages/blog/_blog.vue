@@ -53,4 +53,7 @@ img{
 code{
   color: red;
 }
+p{
+  margin-bottom: 1em;
+}
 </style>
