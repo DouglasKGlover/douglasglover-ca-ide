@@ -7,14 +7,12 @@
           {{ tech }}
         </li>
       </ul>
-      <div v-html="projectPost" />
+      <div v-html="$md.render(projectPost)" />
     </div>
   </div>
 </template>
 
 <script>
-import { documentToHtmlString } from '@contentful/rich-text-html-renderer'
-import { BLOCKS, INLINES } from '@contentful/rich-text-types'
 import { createClient } from '~/plugins/contentful.js'
 
 const client = createClient()
@@ -28,18 +26,10 @@ export default {
       })
     ]).then(([projects]) => {
       const thisProject = projects.items[0]
-      const postOptions = {
-        renderNode: {
-          [BLOCKS.EMBEDDED_ASSET]: ({ data: { target: { fields } } }) =>
-            `<img src="${fields.file.url}" alt="${fields.description}"/>`,
-          [INLINES.ENTRY_HYPERLINK]: ({ data: { target: { fields } } }) =>
-            `<a href="/projects/${fields.slug}">${fields.title}</a>`
-        }
-      }
       return {
         projectTitle: thisProject.fields.title,
         technologies: thisProject.fields.technologies,
-        projectPost: documentToHtmlString(thisProject.fields.post, postOptions)
+        projectPost: thisProject.fields.post
       }
     }).catch()
   }
@@ -67,5 +57,8 @@ li{
   border-radius: 3px;
   font-size: .9em;
   margin: 0 2px;
+}
+a[title="yt-video"] img{
+  border: 10px solid red;
 }
 </style>
