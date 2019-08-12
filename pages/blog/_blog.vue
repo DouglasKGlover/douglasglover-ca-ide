@@ -1,13 +1,13 @@
 <template>
   <div class="container">
     <div>
-      <h2>{{ projectTitle }}</h2>
+      <h2>{{ blogTitle }}</h2>
       <ul>
         <li v-for="tech in technologies" :key="tech">
           {{ tech }}
         </li>
       </ul>
-      <div v-html="projectPost" />
+      <div v-html="blogPost" />
     </div>
   </div>
 </template>
@@ -23,23 +23,23 @@ export default {
   asyncData ({ env, params }) {
     return Promise.all([
       client.getEntries({
-        'content_type': 'project',
-        'fields.slug[in]': params.project
+        'content_type': 'blogPost',
+        'fields.slug[in]': params.blog
       })
-    ]).then(([projects]) => {
-      const thisProject = projects.items[0]
+    ]).then(([blog]) => {
+      const thisblog = blog.items[0]
       const postOptions = {
         renderNode: {
           [BLOCKS.EMBEDDED_ASSET]: ({ data: { target: { fields } } }) =>
             `<img src="${fields.file.url}" alt="${fields.description}"/>`,
           [INLINES.ENTRY_HYPERLINK]: ({ data: { target: { fields } } }) =>
-            `<a href="/projects/${fields.slug}">${fields.title}</a>`
+            `<a href="/blogs/${fields.slug}">${fields.title}</a>`
         }
       }
       return {
-        projectTitle: thisProject.fields.title,
-        technologies: thisProject.fields.technologies,
-        projectPost: documentToHtmlString(thisProject.fields.post, postOptions)
+        blogTitle: thisblog.fields.title,
+        technologies: thisblog.fields.technologies,
+        blogPost: documentToHtmlString(thisblog.fields.post, postOptions)
       }
     }).catch()
   }

@@ -14,7 +14,7 @@
       </div>
       <h2>Blogs:</h2>
         <p v-for="blog in blogs" :key="blog.fields.title">
-          {{ blog.fields.title }}
+          <nuxt-link :to="'/blog/'+blog.fields.slug" exact>{{ blog.fields.title }}</nuxt-link>
         </p>
     </div>
   </div>
