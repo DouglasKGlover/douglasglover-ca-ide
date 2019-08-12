@@ -2,9 +2,16 @@
   <div class="container">
     <div>
       <h2>Projects:</h2>
-        <p v-for="project in projects" :key="project.fields.title">
-          {{ project.fields.title }}
+      <div v-for="project in projects" :key="project.fields.title">
+        <p>
+          <nuxt-link :to="'/projects/'+project.fields.slug" exact>{{ project.fields.title }}</nuxt-link>
         </p>
+        <ul>
+          <li v-for="tech in project.fields.technologies" :key="tech">
+            {{ tech }}
+          </li>
+        </ul>
+      </div>
       <h2>Blogs:</h2>
         <p v-for="blog in blogs" :key="blog.fields.title">
           {{ blog.fields.title }}
