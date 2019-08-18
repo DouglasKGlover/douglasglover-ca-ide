@@ -1,5 +1,5 @@
 <template>
-  <div class="container">
+  <div class="content">
     <h1>My blog posts:</h1>
     <p v-for="blog in blogs" :key="blog.fields.title">
       <nuxt-link :to="'/blog/'+blog.fields.slug" exact>{{ blog.fields.title }}</nuxt-link>

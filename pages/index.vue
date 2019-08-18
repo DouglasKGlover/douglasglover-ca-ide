@@ -1,5 +1,5 @@
 <template>
-  <div class="container">
+  <section class="content" contenteditable="true" spellcheck="false">
     <div>
       <h2><nuxt-link to="/projects" exact>Projects</nuxt-link></h2>
       <div v-for="project in projects" :key="project.fields.title">
@@ -12,7 +12,7 @@
         <nuxt-link :to="'/blog/'+blog.fields.slug" exact>{{ blog.fields.title }}</nuxt-link>
       </p>
     </div>
-  </div>
+  </section>
 </template>
 
 <script>
@@ -38,6 +38,3 @@ export default {
   }
 }
 </script>
-
-<style>
-</style>

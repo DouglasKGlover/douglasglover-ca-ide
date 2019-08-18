@@ -1,15 +1,18 @@
 <template>
-  <div class="content">
+  <section class="content project" contenteditable="true" spellcheck="false">
+    <div>
+    </div>
     <div>
       <h2>{{ projectTitle }}</h2>
-      <ul>
+      <ul contenteditable="false">
         <li v-for="tech in technologies" :key="tech">
           {{ tech }}
         </li>
       </ul>
+      <hr>
       <div v-html="$md.render(projectPost)" />
     </div>
-  </div>
+  </section>
 </template>
 <script>
 import { createClient } from '~/plugins/contentful.js'
@@ -28,7 +31,7 @@ export default {
       return {
         projectTitle: thisProject.fields.title,
         technologies: thisProject.fields.technologies,
-        projectPost: thisProject.fields.post
+        projectPost: thisProject.fields.post.replace('<a', '<a contenteditable="false"')
       }
     }).catch()
   }

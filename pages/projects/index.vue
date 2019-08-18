@@ -1,5 +1,5 @@
 <template>
-  <div class="container">
+  <div class="content">
     <h1>My projects:</h1>
     <p v-for="project in projects" :key="project.fields.title">
       <nuxt-link :to="'/projects/'+project.fields.slug" exact>{{ project.fields.title }}</nuxt-link>

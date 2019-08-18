@@ -22,11 +22,12 @@ export default {
   /*
   ** Customize the progress-bar color
   */
-  loading: { color: '#fff' },
+  loading: { color: 'rgba(255,255,255,0.25)' },
   /*
   ** Global CSS
   */
   css: [
+    '~/css/main.scss'
   ],
   /*
   ** Plugins to load before mounting the App
@@ -47,11 +48,7 @@ export default {
     '@nuxtjs/markdownit',
     '@nuxtjs/style-resources'
   ],
-  styleResources: {
-    scss: [
-      './assets/css/*.scss'
-      ]
-  },
+  styleResources: {},
   markdownit: {
     injected: true,
     html: true
@@ -60,9 +57,6 @@ export default {
   ** Build configuration
   */
   build: {
-    /*
-    ** You can extend webpack config here
-    */
     extend (config, ctx) {
       const svgRule = config.module.rules.find(rule => rule.test.test('.svg'));
 

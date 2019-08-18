@@ -1,5 +1,5 @@
 <template>
-  <div class="container">
+  <section class="content blog" contenteditable="true" spellcheck="false">
     <div>
       <h2>{{ title }}</h2>
       <ul>
@@ -9,7 +9,7 @@
       </ul>
       <div v-html="$md.render(post)" />
     </div>
-  </div>
+  </section>
 </template>
 
 <script>
@@ -29,7 +29,7 @@ export default {
       return {
         title: thisBlog.fields.title,
         technologies: thisBlog.fields.technologies,
-        post: thisBlog.fields.post
+        post: thisBlog.fields.post.replace('<a', '<a contenteditable="false"')
       }
     }).catch()
   }

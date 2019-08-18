@@ -1,5 +1,5 @@
-
 @import 'variables';
+@import 'scrollbar';
 
 // General overrides
 body {
@@ -13,23 +13,43 @@ body {
     color: $white;
     margin: 0;
     overflow: hidden;
-    padding-top: 20px;
+}
+
+::selection {
+    background-color: #a7fcff28;
+}
+
+p {
+    line-height: 1.61803399em;  // Golden ratio lol
 }
 
 a {
+    cursor: pointer;
     color: $white;
 }
 
+hr {
+    height: 1px;
+    background: $white-25;
+    border: none;
+}
+
+section:focus {
+    outline: 0;
+}
+
 // Header
+$header-height: 30px;
 header {
     position: fixed;
     display: flex;
     top: 0;
     left: 0;
-    height: 25px;
+    height: $header-height;
     width: 100vw;
     align-items: center;
     padding-left: $global-spacing;
+    background: $scheme-mid;
     svg {
         vertical-align: middle;
         height: 1em;
@@ -49,25 +69,26 @@ header {
     #main-nav { grid-area: 1 / 2 / 6 / 3; }
 }
 
-// External Navigation
+// External navigation
 #external-nav {
+    margin-top: $header-height;
     ul {
         margin: 0;
         padding: 0 0 0 25%;
-        li{
+        li {
             display: block;
-            svg{
+            svg {
                 display: block;
                 margin: $global-spacing auto;
                 padding: $global-spacing;
                 max-width: 100%;
-                path{
+                path {
                     fill: rgba(255,255,255,0.5);
                     stroke: rgba(255,255,255,0.5);
                 }
-                &:hover{
+                &:hover {
                     border: 1px dashed rgba(255,255,255,.75);
-                    path{
+                    path {
                         fill: rgba(255,255,255,.75);
                         stroke: rgba(255,255,255,.75);
                     }
@@ -77,14 +98,41 @@ header {
     }
 }
 
-#main-nav{
+// Main navigation
+#main-nav {
+    margin-top: $header-height;
     ul {
-        li{
+        li {
             display: block;
         }
     }
 }
 
-.content{
+// Pages (Content)
+.content {
+    margin-top: $header-height;
+    background: $scheme-dark;
+    padding: 0 10% 0 $global-spacing;
     overflow-y: auto;
+    ul {
+        padding: 0;
+        li {
+            display: inline-block;
+            background: $white-25;
+            padding: 1px 10px;
+            margin: 0 $global-spacing $global-spacing 0;
+            border-radius: 3px;
+        }
+    }
+    &.project {
+        a {
+            color: $scheme-anchor;
+            text-decoration: none;
+            border-bottom: 1px solid $scheme-anchor;
+        }
+        img {
+            width: 400px;
+            max-width: 100%;
+        }
+    }
 }
