@@ -1,0 +1,17 @@
+// Header
+header {
+    display: flex;
+    align-items: center;
+    padding-left: $global-spacing;
+    background: $scheme-dark;
+    svg {
+        vertical-align: middle;
+        height: 1em;
+    }
+}
+
+// Subheader
+#subheader {
+    display: flex;
+    align-items: center;
+}

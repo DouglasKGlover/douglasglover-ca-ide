@@ -1,0 +1,49 @@
+// External navigation
+#external-nav {
+    ul {
+        margin: 0;
+        padding: 0 0 0 25%;
+        li {
+            display: block;
+            svg {
+                display: block;
+                margin: $global-spacing auto;
+                padding: $global-spacing;
+                max-width: 100%;
+                path {
+                    fill: $white-25;
+                    stroke: $white-25;
+                }
+                &:hover {
+                    border: 1px dashed $white-25;
+                    path {
+                        fill: $white-50;
+                        stroke: $white-50;
+                    }
+                }
+            }
+        }
+    }
+}
+
+// Main navigation
+#main-nav {
+    ul {
+        padding: 0;
+        li {
+            display: block;
+            a {
+                padding: 3px 10px;
+                display: block;
+                text-decoration: none;
+                opacity: 0.75;
+                width: 100%;
+                border: 1px solid transparent;
+                &:hover {
+                    opacity: 1;
+                    border: 1px dashed $white-25;
+                }
+            }
+        }
+    }
+}

@@ -1,0 +1,13 @@
+#site-container { 
+    height: 100vh;
+    display: grid; 
+    grid-template-columns: 60px 200px 1fr;
+    grid-template-rows: 30px auto 1fr;
+    grid-column-gap: 0px;
+    grid-row-gap: 0px; 
+    header { grid-area: 1 / 1 / 2 / 4; } 
+    #external-nav { grid-area: 2 / 1 / 4 / 2; } 
+    #main-nav { grid-area: 2 / 2 / 4 / 3; } 
+    #subheader { grid-area: 2 / 3 / 3 / 4; } 
+    .content { grid-area: 3 / 3 / 4 / 4; } 
+}
