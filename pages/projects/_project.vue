@@ -1,5 +1,5 @@
 <template>
-  <div class="container">
+  <div class="content">
     <div>
       <h2>{{ projectTitle }}</h2>
       <ul>
@@ -11,7 +11,6 @@
     </div>
   </div>
 </template>
-
 <script>
 import { createClient } from '~/plugins/contentful.js'
 
@@ -36,5 +35,5 @@ export default {
 }
 </script>
 
-<style>
+<style lang="scss">
 </style>

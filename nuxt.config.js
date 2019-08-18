@@ -15,7 +15,7 @@ export default {
       { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' },
       {
         rel: 'stylesheet',
-        href: 'https://fonts.googleapis.com/css?family=Raleway&display=swap'
+        href: 'https://fonts.googleapis.com/css?family=Inconsolata&display=swap'
       }
     ]
   },
@@ -45,7 +45,7 @@ export default {
   */
   modules: [
     '@nuxtjs/markdownit',
-    '@nuxtjs/style-resources',
+    '@nuxtjs/style-resources'
   ],
   styleResources: {
     scss: [
@@ -53,7 +53,8 @@ export default {
       ]
   },
   markdownit: {
-    injected: true
+    injected: true,
+    html: true
   },
   /*
   ** Build configuration
@@ -63,6 +64,14 @@ export default {
     ** You can extend webpack config here
     */
     extend (config, ctx) {
+      const svgRule = config.module.rules.find(rule => rule.test.test('.svg'));
+
+      svgRule.test = /\.(png|jpe?g|gif|webp)$/;
+
+      config.module.rules.push({
+        test: /\.svg$/,
+        loader: 'vue-svg-loader',
+      });
     }
   },
   env: {

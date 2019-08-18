@@ -1,5 +1,5 @@
 <template>
-    <div>
+    <nav id="main-nav">
         <ul>
             <li>
                 <nuxt-link to="/" exact>Home</nuxt-link>
@@ -11,5 +11,5 @@
                 <nuxt-link to="/blog">Blog</nuxt-link>
             </li>
         </ul>
-    </div>
+    </nav>
 </template>
