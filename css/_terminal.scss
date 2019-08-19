@@ -1,0 +1,32 @@
+// Terminal
+#terminal {
+    background: $scheme-dark;
+    border-top: 1px solid $white-50;
+    button {
+        border: 1px solid transparent;
+        background: transparent;
+        color: $white-50;
+        margin: 2px 0;
+        padding: .5em .25em;
+        cursor: pointer;
+        &:hover {
+            color: $white;
+            border: 1px dashed $white-10;
+        }
+        &:focus {
+            outline: 0;
+            ~ div {
+                display: block;
+            }
+        }
+        &.active {
+            color: $white;
+            border: 1px solid $white-10;
+        }
+    }
+    div {
+        display: none;
+        width: 100%;
+        padding: 0 $global-spacing;
+    }
+}
