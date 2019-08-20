@@ -30,4 +30,16 @@ header {
 #subheader {
     display: flex;
     align-items: center;
+    color: $white-50;
+    cursor: default;
+    a, span a {
+        display: inline-block;
+        color: $scheme-cta-secondary;
+        text-decoration: none;
+        padding: .5em 0;
+        cursor: pointer;
+        &:hover {
+            color: $white;
+        }
+    }
 }

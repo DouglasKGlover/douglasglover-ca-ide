@@ -21,6 +21,7 @@ body {
 
 ::selection {
     background-color: #a7fcff28;
+    border-radius: 5px;
 }
 
 p {
@@ -55,13 +56,14 @@ section:focus {
             padding: 1px 10px;
             margin: 0 $global-spacing $global-spacing 0;
             border-radius: 3px;
+            cursor: default;
         }
     }
     &.project {
         a {
-            color: $scheme-anchor;
+            color: $scheme-cta-primary;
             text-decoration: none;
-            border-bottom: 1px solid $scheme-anchor;
+            border-bottom: 1px solid $scheme-cta-primary;
         }
         img {
             width: 400px;
