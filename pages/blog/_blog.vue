@@ -32,6 +32,18 @@ export default {
         post: thisBlog.fields.post.replace('<a', '<a contenteditable="false"')
       }
     }).catch()
+  },
+  computed: {
+    projects () {
+      return this.$store.state.projects
+    },
+    blogs () {
+      return this.$store.state.blogs
+    }
+  },
+  async fetch ({ store, params }) {
+    await store.dispatch('getProjects')
+    await store.dispatch('getBlogs')
   }
 }
 </script>

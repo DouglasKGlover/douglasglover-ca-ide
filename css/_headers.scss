@@ -32,6 +32,7 @@ header {
     align-items: center;
     color: $white-50;
     cursor: default;
+    padding-left: $global-spacing;
     a, span a {
         display: inline-block;
         color: $scheme-cta-secondary;

@@ -17,15 +17,15 @@
 export default {
   computed: {
     projects () {
-      return this.$store.state.contentful.projects
+      return this.$store.state.projects
     },
     blogs () {
-      return this.$store.state.contentful.blogs
+      return this.$store.state.blogs
     }
   },
   async fetch ({ store, params }) {
-    await store.dispatch('contentful/getProjects')
-    await store.dispatch('contentful/getBlogs')
+    await store.dispatch('getProjects')
+    await store.dispatch('getBlogs')
   }
 }
 </script>

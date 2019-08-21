@@ -46,6 +46,27 @@
                     opacity: 1;
                     border: 1px dashed $white-25;
                 }
+                &.nuxt-link-active {
+                    opacity: 1;
+                    svg {
+                        transform: rotate(90deg);
+                    }
+                    ~ ul {
+                    display: block;
+                    }
+                }
+                &.nuxt-link-exact-active {
+                    opacity: 1;
+                    background: $white-10;
+                }
+            }
+            ul {
+                display: none;
+                margin-left: 10px;
+                border-left: 1px solid $white-10;
+                a {
+                    padding-left: 20px;
+                }
             }
         }
     }

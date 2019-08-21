@@ -16,7 +16,8 @@ export const mutations = {
 }
 
 export const actions = {
-  async getProjects ({ commit }) {
+  async getProjects ({ state, commit }) {
+    if (state.projects.length) { return }
     const response = await client.getEntries({
       content_type: 'project'
     })
@@ -24,7 +25,8 @@ export const actions = {
       commit('updateProjects', response.items)
     }
   },
-  async getBlogs ({ commit }) {
+  async getBlogs ({ state, commit }) {
+    if (state.blogs.length) { return }
     const response = await client.getEntries({
       content_type: 'blogPost'
     })
