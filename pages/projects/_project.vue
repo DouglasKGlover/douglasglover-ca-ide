@@ -1,8 +1,6 @@
 <template>
   <section class="content project" contenteditable="true" spellcheck="false">
     <div>
-    </div>
-    <div>
       <h2>{{ projectTitle }}</h2>
       <ul contenteditable="false">
         <li v-for="tech in technologies" :key="tech">

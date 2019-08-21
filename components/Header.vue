@@ -2,14 +2,14 @@
     <header>
       <ul>
         <li><Logo /></li>
-        <li><a href="#test">File</a></li>
-        <li><a href="#test">Edit</a></li>
-        <li><a href="#test">Selection</a></li>
-        <li><a href="#test">View</a></li>
-        <li><a href="#test">Go</a></li>
-        <li><a href="#test">Debug</a></li>
-        <li><a href="#test">Terminal</a></li>
-        <li><a href="#test">Help</a></li>
+        <li><n-link to="">File</n-link></li>
+        <li><n-link to="">Edit</n-link></li>
+        <li><n-link to="">Selection</n-link></li>
+        <li><n-link to="">View</n-link></li>
+        <li><n-link to="">Go</n-link></li>
+        <li><n-link to="">Debug</n-link></li>
+        <li><n-link to="">Terminal</n-link></li>
+        <li><n-link to="">Help</n-link></li>
       </ul>
     </header>
 </template>

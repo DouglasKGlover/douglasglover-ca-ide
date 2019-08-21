@@ -1,9 +1,10 @@
 <template>
-  <div class="content">
+  <div class="content blog">
     <h1>My blog posts:</h1>
-    <p v-for="blog in blogs" :key="blog.fields.title">
-      <nuxt-link :to="'/blog/'+blog.fields.slug" exact>{{ blog.fields.title }}</nuxt-link>
-    </p>
+    <nuxt-link v-for="blog in blogs" :key="blog.fields.title" :to="'/blog/'+blog.fields.slug" exact>
+      <h3>{{ blog.fields.title }}</h3>
+      <p>{{ blog.fields.description }}</p>
+    </nuxt-link>
   </div>
 </template>
 
