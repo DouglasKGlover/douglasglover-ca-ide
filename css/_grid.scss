@@ -12,3 +12,22 @@
     .content { grid-area: 3 / 3 / 4 / 4; }
     #terminal { grid-area: 4 / 3 / 5 / 4; }
 }
+
+@media (orientation: portrait) {
+    #site-container {
+        display: grid;
+        grid-template-columns: 1fr;
+        grid-template-rows: 1fr;
+        grid-column-gap: 0px;
+        grid-row-gap: 0px;
+        .content { grid-area: 1; }
+
+        header,
+        #external-nav,
+        #subheader,
+        #terminal,
+        #main-nav {
+            display: none;
+        }
+    }
+}
