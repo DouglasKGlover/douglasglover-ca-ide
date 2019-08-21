@@ -59,15 +59,45 @@ section:focus {
             cursor: default;
         }
     }
+    a {
+        color: $scheme-cta-primary;
+        text-decoration: none;
+        border-bottom: 1px solid $scheme-cta-primary;
+    }
     &.project {
-        a {
-            color: $scheme-cta-primary;
-            text-decoration: none;
-            border-bottom: 1px solid $scheme-cta-primary;
-        }
         img {
             width: 400px;
             max-width: 100%;
+        }
+    }
+    .project-thumb {
+        width: 300px;
+        position: relative;
+        overflow: hidden;
+        opacity: 0.9;
+        transition: 0.25s ease;
+        h3 {
+            margin: 0;
+            position: absolute;
+            bottom: -2em;
+            background-image: linear-gradient(to right, black, transparent);
+            width: 100%;
+            padding: 0.25em $global-spacing;
+            pointer-events: none;
+            transition: 0.25s ease;
+        }
+        &:hover {
+            opacity: 1;
+            h3 {
+                bottom: 0;
+            }
+        }
+        a {
+            border-bottom: 0;
+            img {
+                display: block;
+                width: 100%;
+            }
         }
     }
 }
