@@ -5,7 +5,7 @@ export default {
   ** Headers of the page
   */
   head: {
-    title: 'Douglas Glover | Freelance Web Developer in Toronto Ontario Canada',
+    title: 'Douglas Glover | Full Stack Web Developer in Toronto Ontario Canada',
     meta: [
       { charset: 'utf-8' },
       { name: 'viewport', content: 'width=device-width, initial-scale=1' },

@@ -89,23 +89,18 @@ section:focus {
         width: 300px;
         position: relative;
         overflow: hidden;
-        opacity: 0.9;
-        transition: 0.25s ease;
+        opacity: .8;
+        &:hover {
+            opacity: 1;
+        }
         h3 {
             margin: 0;
             position: absolute;
-            bottom: -2em;
+            bottom: 0;
             background-image: linear-gradient(to right, black, transparent);
             width: 100%;
             padding: 0.25em $global-spacing;
             pointer-events: none;
-            transition: 0.25s ease;
-        }
-        &:hover {
-            opacity: 1;
-            h3 {
-                bottom: 0;
-            }
         }
         a {
             border-bottom: 0;
