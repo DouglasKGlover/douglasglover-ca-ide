@@ -5,7 +5,7 @@
         DouglasGlover.ca
       </h1>
       <h2 class="subtitle">
-        Currently under construction (July 2019)
+        Currently under construction
       </h2>
 
       <p>In the meantime, feel free to reach out:</p>
